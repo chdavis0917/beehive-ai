@@ -1,13 +1,13 @@
 <html>
-<head>
-  <meta charset="UTF-8">
-  <title>Chatroom</title>
-</head>
-<body>
-  <h2>Chatroom</h2>
-  <input id="input" type="text" />
-<button onclick="send()">Send</button>
-<pre id="output"></pre>
-<script src="client/main.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <title>Chatroom</title>
+  </head>
+  <body>
+    <h2>Chatroom</h2>
+    <input id="input" type="text" onkeypress="handleKeyPress(event)" />
+    <button id="sendBtn" onclick="send()">Send</button>
+    <pre id="output"></pre>
+    <script src="client/main.js"></script>
+  </body>
 </html>
