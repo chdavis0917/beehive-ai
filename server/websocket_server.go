@@ -5,6 +5,7 @@ import (
     "net/http"
     "github.com/gorilla/mux"
     "github.com/gorilla/websocket"
+    "encoding/json"
 )
 
 type Message struct {
@@ -37,7 +38,15 @@ func main() {
         http.ServeFile(w, r, "index.html")
     })
 
+    // Serve the main.js file
+  // Serve the main.js file
+router.HandleFunc("/client/main.js", func(w http.ResponseWriter, r *http.Request) {
+    http.ServeFile(w, r, "./client/main.js")
+})
+
+
     log.Fatal(http.ListenAndServe(":8080", router))
+    log.Println("Server is running on port 8080")
 }
 
 func getMessages(w http.ResponseWriter, r *http.Request) {
@@ -60,7 +69,7 @@ func websocketHandler(w http.ResponseWriter, r *http.Request) {
     }
     
     // Add the new connection to the list of connections
-    connections[conn] = true
+    connections := make(map[*websocket.Conn]bool)
     
     defer func() {
         // Close the WebSocket connection and remove it from the list of connections
@@ -97,4 +106,3 @@ func websocketHandler(w http.ResponseWriter, r *http.Request) {
         }
     }
 }
-

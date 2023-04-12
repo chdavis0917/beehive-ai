@@ -16,6 +16,7 @@ const getMessages = () => {
 
 // Upon opening the WebSocket connection...
 ws.addEventListener('open', () => {
+    console.log("started up frontend");
   getMessages();
 });
 
@@ -27,6 +28,7 @@ ws.addEventListener('message', (event) => {
     mainContainer.innerHTML = null;
 
     for (let i = 0; i < message.data.length; i += 1) {
+        console.log("What kinds of messages are being sent?", message.data[i]);
       new Message(message.data[i]);
     }
   }
@@ -37,6 +39,7 @@ submit.addEventListener('click', (e) => {
   e.preventDefault();
 
   if (input.value) {
+    console.log("What kinds of messages are being sent?", input.value);
     // Send a message to the WebSocket server to post a new message
     ws.send(
       JSON.stringify({
