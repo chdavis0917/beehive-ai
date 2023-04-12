@@ -1,10 +1,27 @@
+/* Update the chatbox styling */
 #chatbox {
     height: 300px;
     overflow: auto;
-    border: 1px solid black;
+    border: 1px solid #0099CC;
     padding: 5px;
+    background-color: #E6F2F9;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    font-family: "Courier New", Courier, monospace;
   }
   
+  /* Update the message styling */
+  .message {
+    align-self: flex-end;
+    margin-bottom: 5px;
+    padding: 2px;
+    color: #0099CC;
+    font-weight: bold;
+    border-radius: 5px;
+  }
+  
+  /* Update the inputbox styling */
   #inputbox {
     display: flex;
     align-items: center;
@@ -14,9 +31,29 @@
   #input {
     flex: 1;
     margin-right: 10px;
+    border: 1px solid #0099CC;
+    padding: 5px;
+    font-family: "Courier New", Courier, monospace;
   }
   
   #sendBtn {
     width: 80px;
+    background-color: #0099CC;
+    color: #FFFFFF;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* Add some general styling */
+  body {
+    background-color: #F2F2F2;
+  }
+  
+  h2 {
+    color: #0099CC;
+    text-align: center;
+    font-family: "Courier New", Courier, monospace;
   }
   

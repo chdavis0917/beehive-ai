@@ -7,7 +7,16 @@ socket.onopen = function () {
 };
 
 socket.onmessage = function (e) {
-  output.innerHTML = "Server: " + e.data + "\n" + output.innerHTML;
+  // Create a new message element
+  let message = document.createElement("div");
+  message.classList.add("message");
+  message.innerText = e.data;
+
+  // Add the message element to the chatbox
+  output.appendChild(message);
+
+  // Scroll to the bottom of the chatbox
+  output.scrollTop = output.scrollHeight;
 };
 
 function send() {
