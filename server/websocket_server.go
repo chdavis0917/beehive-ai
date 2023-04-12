@@ -15,7 +15,26 @@ var upgrader = websocket.Upgrader{
 var clients []websocket.Conn
 var history []string
 
+const password = "mysecretpassword"
+
 func main() {
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		if r.Method == "POST" {
+			pass := r.FormValue("password")
+			if pass == password {
+				http.Redirect(w, r, "/chat", http.StatusSeeOther)
+			} else {
+				fmt.Fprint(w, "<p style='color:red'>Incorrect password</p>")
+			}
+		} else {
+			http.ServeFile(w, r, "login.html")
+		}
+	})
+
+	http.HandleFunc("/chat", func(w http.ResponseWriter, r *http.Request) {
+		http.ServeFile(w, r, "index.html")
+	})
+
 	http.HandleFunc("/echo", func(w http.ResponseWriter, r *http.Request) {
 		conn, _ := upgrader.Upgrade(w, r, nil)
 
@@ -48,11 +67,6 @@ func main() {
 				}
 			}
 		}
-	})
-
-	// Serve the index.html file
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		http.ServeFile(w, r, "index.html")
 	})
 
 	// Serve the main.js script
