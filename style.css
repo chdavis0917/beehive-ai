@@ -1,0 +1,22 @@
+#chatbox {
+    height: 300px;
+    overflow: auto;
+    border: 1px solid black;
+    padding: 5px;
+  }
+  
+  #inputbox {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  #input {
+    flex: 1;
+    margin-right: 10px;
+  }
+  
+  #sendBtn {
+    width: 80px;
+  }
+  

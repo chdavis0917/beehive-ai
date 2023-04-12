@@ -7,7 +7,7 @@ socket.onopen = function () {
 };
 
 socket.onmessage = function (e) {
-  output.innerHTML += "Server: " + e.data + "\n";
+  output.innerHTML = "Server: " + e.data + "\n" + output.innerHTML;
 };
 
 function send() {

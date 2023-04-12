@@ -15,7 +15,7 @@ var upgrader = websocket.Upgrader{
 var clients []websocket.Conn
 var history []string
 
-const password = "mysecretpassword"
+const password = "pw"
 
 func main() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
@@ -73,6 +73,11 @@ func main() {
 	http.HandleFunc("/client/main.js", func(w http.ResponseWriter, r *http.Request) {
 		http.ServeFile(w, r, "client/main.js")
 	})
+
+    http.HandleFunc("/style.css", func(w http.ResponseWriter, r *http.Request) {
+        http.ServeFile(w, r, "style.css")
+    })
+    
 
 	http.ListenAndServe(":8080", nil)
 }
