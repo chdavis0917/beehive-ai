@@ -23,6 +23,11 @@ Navigate to the cloned directory using:
 cd beehive-ai
 ```
 
+Install Typescript locally by running:
+```bash
+npm install
+```
+
 Make sure you have Go version 1.16 or higher installed on your machine.
 
 Install the dependencies by running:
