@@ -1,0 +1,15 @@
+{
+  "name": "beehive-ai",
+  "version": "1.0.0",
+  "description": "Welcome to the chatroom!",
+  "author": "Christopher Davis",
+  "license": "MIT",
+  "dependencies": {
+    "typescript": "^5.0.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chdavis0917/beehive-ai.git"
+  },
+  "homepage": "https://github.com/chdavis0917/beehive-ai#readme"
+}

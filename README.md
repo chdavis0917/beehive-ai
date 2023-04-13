@@ -30,11 +30,6 @@ Install the dependencies by running:
 go mod download
 ```
 
-Build the Go server by running:
-```bash
-go build ..
-```
-
 Start the server in the root directory by running:
 ```bash
 go run server/websocket_server.go
