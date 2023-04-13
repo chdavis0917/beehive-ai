@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"net/http"
-
+    "log"
 	"github.com/gorilla/websocket"
 )
 
@@ -43,7 +43,7 @@ func main() {
 		// Send chat history to new client
 		for _, msg := range history {
 			if err := conn.WriteMessage(websocket.TextMessage, []byte(msg)); err != nil {
-				fmt.Printf("error sending message to client: %v\n", err)
+				log.Printf("error sending message to client: %v\n", err)
 			}
 		}
 
@@ -51,6 +51,7 @@ func main() {
 			// Read message from browser
 			msgType, msg, err := conn.ReadMessage()
 			if err != nil {
+				log.Printf("error reading message from client: %v\n", err)
 				return
 			}
 
@@ -63,6 +64,7 @@ func main() {
 			// Broadcast message to all clients
 			for _, client := range clients {
 				if err = client.WriteMessage(msgType, msg); err != nil {
+					log.Printf("error broadcasting message: %v\n", err)
 					return
 				}
 			}
@@ -81,3 +83,4 @@ func main() {
 
 	http.ListenAndServe(":8080", nil)
 }
+

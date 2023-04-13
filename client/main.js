@@ -20,9 +20,20 @@ socket.onmessage = function (e) {
 };
 
 function send() {
-  socket.send(input.value);
+  if (input.value.trim() === "") {
+    return;
+  }
+
+  socket.send(input.value, function (error) {
+    if (error) {
+      output.innerHTML += "<p style='color:red'>Error sending message: " + error.message + "</p>";
+      console.error(error);
+    } else {
+    }
+  });
   input.value = "";
 }
+
 
 function handleKeyPress(event) {
   if (event.keyCode === 13) {
