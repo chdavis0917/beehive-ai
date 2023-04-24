@@ -15,12 +15,12 @@ Note: All references to main.js in this project are referencing a compiled JavaS
 Clone the repository from GitHub using:
 
 ```bash
- git clone https://github.com/chdavis0917/beehive-ai.git
+ git clone https://github.com/chdavis0917/chatroom-websockets.git
  ```
 
 Navigate to the cloned directory using:
 ```bash
-cd beehive-ai
+cd chatroom-websockets
 ```
 
 Install Typescript locally by running:
